@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --surface: 0 0% 100%; /* White surface */
+        --surface-foreground: 240 8% 25%; /* #2F2B3D */
+
+        /* Status Colors */
+        --success: 145 73% 48%; /* #28C76F */
+        --success-foreground: 0 0% 100%;
+
+        --info: 189 100% 41%; /* #00BAD1 */
+        --info-foreground: 0 0% 100%;
+
+        --warning: 33 98% 61%; /* #FF9F43 */
+        --warning-foreground: 0 0% 100%;
+
+        --background: 260 23% 97%;
+        --foreground: 20 14.3% 4.1%;
+
+        --card: var(--surface);
+        --card-foreground: var(--surface-foreground);
+
+        --popover: var(--surface);
+        --popover-foreground: var(--surface-foreground);
+      
+        --popover: 0 0% 100%;
+        --popover-foreground: 20 14.3% 4.1%;
+      
+        --primary: 24.6 95% 53.1%;
+        --primary-foreground: 60 9.1% 97.8%;
+      
+        --secondary: 60 4.8% 95.9%;
+        --secondary-foreground: 24 9.8% 10%;
+      
+        --muted: 60 4.8% 95.9%;
+        --muted-foreground: 25 5.3% 44.7%;
+      
+        --accent: 60 4.8% 95.9%;
+        --accent-foreground: 24 9.8% 10%;
+      
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 60 9.1% 97.8%;
+      
+        --border:20 5.9% 90%;
+        --input:20 5.9% 90%;
+        --ring:24.6 95% 53.1%;
+        --radius: 0.5rem;
+
+        --sidebar-background: var(--surface);
+        --sidebar-foreground: var(--surface-foreground);
+        --sidebar-primary: var(--primary);
+        --sidebar-primary-foreground: var(--primary-foreground);
+        --sidebar-accent: var(--accent);
+        --sidebar-accent-foreground: var(--accent-foreground);
+        --sidebar-border: var(--border);
+        --sidebar-ring: var(--ring);
+    }
+
+    .dark {
+        --surface: 220 8% 14%; /* #242526 */
+        --surface-foreground: 220 15% 90%; /* #D0D4F1 */
+
+        /* Status Colors */
+        --success: 145 73% 48%; /* #28C76F */
+        --success-foreground: 0 0% 100%;
+
+        --info: 189 100% 41%; /* #00BAD1 */
+        --info-foreground: 0 0% 100%;
+
+        --warning: 33 98% 61%;
+        --warning-foreground: 0 0% 100%;
+
+        --background: 20 14.3% 4.1%;
+        --foreground: 60 9.1% 97.8%;
+
+        --card: var(--surface);
+        --card-foreground: 60 9.1% 97.8%;
+
+        --popover: var(--surface);
+        --popover-foreground: 60 9.1% 97.8%;
+
+        --primary: 20.5 90.2% 48.2%;
+        --primary-foreground: 60 9.1% 97.8%;
+
+        --secondary: 12 6.5% 15.1%;
+        --secondary-foreground: 60 9.1% 97.8%;
+
+        --muted: 12 6.5% 15.1%;
+        --muted-foreground: 220 9% 46%;
+
+        --accent: 12 6.5% 15.1%;
+        --accent-foreground: 60 9.1% 97.8%;
+
+        --destructive: 0 72.2% 50.6%;
+        --destructive-foreground: 60 9.1% 97.8%;
+
+        --border: 12 6.5% 15.1%;
+        --input: 12 6.5% 15.1%;
+        --ring: 20.5 90.2% 48.2%;
+
+        --sidebar-background: var(--surface);
+        --sidebar-foreground: var(--surface-foreground);
+        --sidebar-primary: var(--primary);
+        --sidebar-primary-foreground: var(--primary-foreground);
+        --sidebar-accent: var(--accent);
+        --sidebar-accent-foreground: var(--accent-foreground);
+        --sidebar-border: var(--border);
+        --sidebar-ring: var(--ring);
+    }
+
+    .iconify {
+        width: 1.5em !important;
+        height: 1.5em !important;
+        flex-shrink: 0;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}

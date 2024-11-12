@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "baseUrl": "./resources",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "paths": {
+            "@/*": ["./ts/*"],
+            "@core/*": ["./ts/@core/*"],
+            "@images/*": ["./assets/images/*"],
+        },
+        "declaration": false,
+        "outDir": "dist",
+        "sourceMap": true
+    },
+    "include": [
+        "./**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+}
