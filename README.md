@@ -1,12 +1,35 @@
 
+# Laravel Jetstream + ShadCN Vue Starter
+
+🚀 Exciting News! Just launched my latest open-source project:
+
+📦 Laravel Jetstream shadcn-vue Starter
+
+🛠️ A powerful starter kit for modern web applications, featuring:
+• Laravel 10.x
+• Jetstream with Inertia.js
+• Vue 3
+• shadcn-vue components
+• Tailwind CSS
+
+🎨 Beautiful UI out of the box
+⚡ Rapid development
+🔒 Built-in authentication
+
+Perfect for developers looking to jumpstart their next big project!
+
+👉 Check it out on GitHub: [Your GitHub Repo Link]
+
+# Laravel #Vue3 #OpenSource #WebDevelopment #shadcnvue
+
+Feel free to star ⭐ and contribute! Let's build amazing things together! 💻✨
+
 [![Laravel Logo](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)](https://laravel.com)
 
 [![Build Status](https://github.com/laravel/framework/workflows/tests/badge.svg)](https://github.com/laravel/framework/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/framework)
 [![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/framework)
 [![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/framework)
-
-# Laravel Jetstream + ShadCN Vue Starter
 
 This is a starter project for Laravel using Jetstream and shadcn-vue, providing a solid foundation for building modern web applications with a beautiful UI.
 
