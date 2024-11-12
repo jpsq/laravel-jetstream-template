@@ -3,7 +3,7 @@
 <template>
     <Card>
         <div class="p-6 lg:p-8 border-b">
-            <ApplicationLogo class="block h-12 w-auto  " />
+            <ApplicationLogo class="block h-52 w-auto mx-auto" />
 
             <h1 class="mt-8 text-2xl font-medium text-foreground">Welcome to your Modern Full-Stack Application!</h1>
 

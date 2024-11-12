@@ -1,8 +1,6 @@
 
 # Laravel Jetstream + ShadCN Vue Starter
 
-🚀 Exciting News! Just launched my latest open-source project:
-
 📦 Laravel Jetstream shadcn-vue Starter
 
 🛠️ A powerful starter kit for modern web applications, featuring:
@@ -11,14 +9,28 @@
 • Vue 3
 • shadcn-vue components
 • Tailwind CSS
+• 📱 Mobile-responsive shadcn-vue components
+• 🌙 Dark mode support out of the box
+• 🔌 Easy-to-use API integration helpers
+• 🚀 Performance optimizations for lightning-fast load times
+• 🧩 Modular architecture for easy customization
 
 🎨 Beautiful UI out of the box
 ⚡ Rapid development
 🔒 Built-in authentication
 
+🔥 Upcoming Features:
+• 🔔 Realtime notifications system
+• 👥 Realtime user status updates
+• 💳 Invoicing system
+• 🔄 Subscription system with customizable plans and features
+• 📊 Advanced analytics dashboard
+• 🌐 Multi-language support
+• 🔐 Enhanced security features
+
 Perfect for developers looking to jumpstart their next big project!
 
-👉 Check it out on GitHub: [Your GitHub Repo Link]
+👉 Check it out on GitHub: <https://github.com/hugo-abdou/laravel-jetstream-shadcn-vue-starter>
 
 # Laravel #Vue3 #OpenSource #WebDevelopment #shadcnvue
 
@@ -57,7 +69,7 @@ Follow these steps to get your development environment running:
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/hugo-abdou/your-repo-name.git
    cd your-repo-name
    ```
 

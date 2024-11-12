@@ -35,5 +35,8 @@ export const navSections: NavSection[] = [
 ];
 
 export const mobileNavItems: MobileNavItems = [
-    { icon: 'tabler-home', title: 'Home', route:'dashboard' },
+    { icon: 'tabler-home', title: 'Accueil', route: 'dashboard' },
+    { icon: 'tabler-search', title: 'Search', route: 'profile.show' },
+    { icon: 'tabler-bell', title: 'Notifications', route: 'profile.show' },
+    { icon: 'tabler-user', title: 'Profile', route: 'profile.show' },
 ];
