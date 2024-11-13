@@ -180,7 +180,7 @@
             </template>
         </Modal>
 
-        <AlertDialog :open="!!apiTokenBeingDeleted" @close="apiTokenBeingDeleted = null">
+        <AlertDialog :open="!!apiTokenBeingDeleted" @update:open="apiTokenBeingDeleted = null">
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> Delete API Token </AlertDialogTitle>
