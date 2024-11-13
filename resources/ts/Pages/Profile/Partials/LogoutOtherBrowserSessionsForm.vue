@@ -109,12 +109,10 @@
                 <ActionMessage :on="form.recentlySuccessful" class="ms-3"> Done. </ActionMessage>
             </div>
             <!-- Log Out Other Devices Confirmation Modal -->
-            <DialogModal :show="confirmingLogout" @close="closeModal">
+            <Modal :show="confirmingLogout" @close="closeModal">
                 <template #title> Log Out Other Browser Sessions </template>
-
+                <template #description>Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.</template>
                 <template #content>
-                    Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.
-
                     <div class="mt-4">
                         <Input
                             ref="passwordInput"
@@ -137,7 +135,7 @@
                         Log Out Other Browser Sessions
                     </Button>
                 </template>
-            </DialogModal>
+            </Modal>
         </template>
     </ActionSection>
 </template>

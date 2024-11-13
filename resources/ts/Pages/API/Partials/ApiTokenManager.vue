@@ -135,7 +135,7 @@
         </div>
 
         <!-- Token Value Modal -->
-        <DialogModal :show="displayingToken" @close="displayingToken = false">
+        <Modal :show="displayingToken" @close="displayingToken = false">
             <template #title> API Token </template>
 
             <template #content>
@@ -149,10 +149,10 @@
             <template #footer>
                 <Button variant="outline" @click="displayingToken = false"> Close </Button>
             </template>
-        </DialogModal>
+        </Modal>
 
         <!-- API Token Permissions Modal -->
-        <DialogModal :show="managingPermissionsFor != null" @close="managingPermissionsFor = null">
+        <Modal :show="managingPermissionsFor != null" @close="managingPermissionsFor = null">
             <template #title> API Token Permissions </template>
 
             <template #content>
@@ -178,7 +178,7 @@
                     Save
                 </Button>
             </template>
-        </DialogModal>
+        </Modal>
 
         <AlertDialog :open="!!apiTokenBeingDeleted" @close="apiTokenBeingDeleted = null">
             <AlertDialogContent>

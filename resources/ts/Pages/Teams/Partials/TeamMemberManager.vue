@@ -259,7 +259,7 @@
         </div>
 
         <!-- Role Management Modal -->
-        <DialogModal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
+        <Modal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
             <template #title> Manage Role </template>
 
             <template #content>
@@ -322,7 +322,7 @@
                     Save
                 </PrimaryButton>
             </template>
-        </DialogModal>
+        </Modal>
 
         <!-- Leave Team Confirmation Modal -->
         <AlertDialog v-model:open="confirmingLeavingTeam">
