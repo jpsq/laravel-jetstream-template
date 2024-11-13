@@ -134,5 +134,3 @@ Explain how to use your project, any important commands, or key features that us
 We welcome contributions to this project. Please feel free to submit a Pull Request.
 
 ## License
-
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

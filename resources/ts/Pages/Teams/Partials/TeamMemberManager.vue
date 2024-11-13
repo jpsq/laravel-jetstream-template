@@ -325,24 +325,20 @@
         </DialogModal>
 
         <!-- Leave Team Confirmation Modal -->
-        <ConfirmationModal :show="confirmingLeavingTeam" @close="confirmingLeavingTeam = false">
-            <template #title> Leave Team </template>
-
-            <template #content> Are you sure you would like to leave this team? </template>
-
-            <template #footer>
-                <SecondaryButton @click="confirmingLeavingTeam = false"> Cancel </SecondaryButton>
-
-                <DangerButton
-                    class="ms-3"
-                    :class="{ 'opacity-25': leaveTeamForm.processing }"
-                    :disabled="leaveTeamForm.processing"
-                    @click="leaveTeam"
-                >
-                    Leave
-                </DangerButton>
-            </template>
-        </ConfirmationModal>
+        <AlertDialog v-model:open="confirmingLeavingTeam">
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle> Leave Team</AlertDialogTitle>
+                    <AlertDialogDescription>Are you sure you would like to leave this team? </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction :class="{ 'opacity-25': leaveTeamForm.processing }" :disabled="leaveTeamForm.processing" @click="leaveTeam">
+                        Leave
+                    </AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
 
         <!-- Delete Team Confirmation Modal -->
         <AlertDialog :open="!!teamMemberBeingRemoved" @update:open="teamMemberBeingRemoved = null">
