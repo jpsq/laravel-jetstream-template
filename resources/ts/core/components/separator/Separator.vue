@@ -25,7 +25,8 @@
                     props.orientation === 'vertical' ? 'w-[1px] px-1 py-2' : 'h-[1px] py-1 px-2'
                 )
             "
-            > | {{ props.label }}</span
+        >
+            | {{ props.label }}</span
         >
     </Separator>
 </template>

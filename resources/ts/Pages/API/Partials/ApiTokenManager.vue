@@ -141,7 +141,10 @@
             <template #content>
                 <div>Please copy your new API token. For your security, it won't be shown again.</div>
 
-                <div v-if="$page.props.jetstream.flash.token" class="mt-4 bg-foreground/10 px-4 py-2 rounded font-mono text-sm text-gray-500 break-all">
+                <div
+                    v-if="$page.props.jetstream.flash.token"
+                    class="mt-4 bg-foreground/10 px-4 py-2 rounded font-mono text-sm text-gray-500 break-all"
+                >
                     {{ $page.props.jetstream.flash.token }}
                 </div>
             </template>
@@ -180,14 +183,14 @@
             </template>
         </Modal>
 
-        <AlertDialog :open="!!apiTokenBeingDeleted" @update:open="apiTokenBeingDeleted = null">
+        <AlertDialog :open="!!apiTokenBeingDeleted">
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> Delete API Token </AlertDialogTitle>
                     <AlertDialogDescription> Are you sure you would like to delete this API token? </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel @click="apiTokenBeingDeleted = null">Cancel</AlertDialogCancel>
                     <AlertDialogAction
                         :class="{ 'opacity-25': deleteApiTokenForm.processing }"
                         :disabled="deleteApiTokenForm.processing"

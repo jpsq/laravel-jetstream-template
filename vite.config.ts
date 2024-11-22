@@ -32,7 +32,15 @@ export default defineConfig({
             ],
         }),
         AutoImport({
-            imports: ['vue', '@vueuse/core', '@vueuse/math', 'vue-i18n', 'pinia', { '@inertiajs/vue3': ['router', 'useForm', 'usePage'] }],
+            imports: [
+                'vue',
+                '@vueuse/core',
+                '@vueuse/math',
+                'vue-i18n',
+                'pinia',
+                { '@inertiajs/vue3': ['router', 'useForm', 'usePage'] },
+                // { 'vue-sonner': [['toast', 'sonnerToast']] },
+            ],
             dirs: ['./resources/ts/lib', './resources/ts/core/lib', './resources/ts/core/composables'],
 
             vueTemplate: true,
@@ -42,8 +50,16 @@ export default defineConfig({
         svgLoader({
             defaultImport: 'url',
         }),
+        // watch({
+        //     command: 'echo "generate env types" && npx dotenv-types-generator',
+        //     pattern: ['./.env'],
+        // }),
     ],
-    define: { 'process.env': {} },
+    define: {
+        'process.env': {
+            hugo: 'hugo',
+        },
+    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./resources/ts', import.meta.url)),
@@ -54,15 +70,15 @@ export default defineConfig({
     },
     build: {
         chunkSizeWarningLimit: 500,
-        target: 'es2022',
+        target: 'esnext',
     },
     esbuild: {
-        target: 'es2022',
+        target: 'esnext',
     },
     optimizeDeps: {
         entries: ['./resources/ts/**/*.vue'],
         esbuildOptions: {
-            target: 'es2022',
+            target: 'esnext',
         },
     },
     server: {

@@ -1,5 +1,5 @@
 <template>
-    <span :class="cn('iconify', name)"></span>
+    <span :class="cn('iconify font-semibold', name)"></span>
 </template>
 
 <script setup lang="ts">

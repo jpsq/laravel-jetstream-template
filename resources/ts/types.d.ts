@@ -10,6 +10,7 @@ interface User {
     verified: boolean;
     two_factor_confirmed_at: string;
     two_factor_enabled: boolean;
+    email_verified_at: boolean;
     current_team: Team;
     current_team_id: Team['id'];
     owned_teams: Team[];
@@ -143,23 +144,22 @@ interface AclProperties {
     // subject: string;
 }
 interface NavLinkProps {
-    href?: string;
-    route?:string
+    route: string;
 }
 
-interface NavLink extends NavLinkProps, Partial<AclProperties> {
+interface NavLink extends NavLinkProps {
     title: string;
     icon?: string;
-    active?:boolean;
+    route: string;
     // TODO: Add Badge Properties logic to the application
     // badgeContent?: string;
     // badgeClass?: string;
     // disable?: boolean;
 }
-interface NavGroup extends Partial<AclProperties> {
+interface NavGroup {
     title: string;
     icon?: any;
-    children: (NavLink | NavGroup)[];
+    children: NavLink[];
     // TODO: Add Badge Properties logic to the application
     // badgeContent?: string;
     // badgeClass?: string;
@@ -170,7 +170,7 @@ export type NavItem = NavLink | NavGroup;
 
 interface NavSection extends Partial<AclProperties> {
     heading: string;
-    navItems: NavItem[];
+    navItems: (NavGroup | NavLink)[];
 }
 
 export type MobileNavItems = NavLink[];

@@ -67,7 +67,7 @@
         teamMemberBeingRemoved.value = teamMember;
     };
 
-    const removeTeamMember = () => {
+    const removeTeamMember = (member: any) => {
         removeTeamMemberForm.delete(route('team-members.destroy', [props.team, teamMemberBeingRemoved.value]), {
             errorBag: 'removeTeamMember',
             preserveScroll: true,
@@ -311,16 +311,11 @@
             </template>
 
             <template #footer>
-                <SecondaryButton @click="currentlyManagingRole = false"> Cancel </SecondaryButton>
+                <Button variant="outline" @click="currentlyManagingRole = false"> Cancel </Button>
 
-                <PrimaryButton
-                    class="ms-3"
-                    :class="{ 'opacity-25': updateRoleForm.processing }"
-                    :disabled="updateRoleForm.processing"
-                    @click="updateRole"
-                >
+                <Button class="ms-3" :class="{ 'opacity-25': updateRoleForm.processing }" :disabled="updateRoleForm.processing" @click="updateRole">
                     Save
-                </PrimaryButton>
+                </Button>
             </template>
         </Modal>
 
@@ -341,18 +336,18 @@
         </AlertDialog>
 
         <!-- Delete Team Confirmation Modal -->
-        <AlertDialog :open="!!teamMemberBeingRemoved" @update:open="teamMemberBeingRemoved = null">
+        <AlertDialog :open="!!teamMemberBeingRemoved">
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> Remove Team Member </AlertDialogTitle>
                     <AlertDialogDescription> Are you sure you would like to remove this person from the team?.</AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel @click="teamMemberBeingRemoved = null">Cancel</AlertDialogCancel>
                     <AlertDialogAction
                         :class="{ 'opacity-25': removeTeamMemberForm.processing }"
                         :disabled="removeTeamMemberForm.processing"
-                        @click="removeTeamMember"
+                        @click.prevent="removeTeamMember(teamMemberBeingRemoved)"
                     >
                         Continue
                     </AlertDialogAction>

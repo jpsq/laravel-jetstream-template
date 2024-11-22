@@ -17,7 +17,6 @@ import { dirname, join } from 'node:path';
 import { cleanupSVG, importDirectory, isEmptyColor, parseColors, runSVGO } from '@iconify/tools';
 import type { IconifyJSON } from '@iconify/types';
 import { getIcons, getIconsCSS, stringToIcon } from '@iconify/utils';
-import { getIconsCSSData } from '@iconify/utils/lib/css/icons';
 
 /**
  * Script configuration
@@ -235,7 +234,7 @@ const typesTarget = join(__dirname, 'types.d.ts');
                 iconSelector: '.{prefix}-{name}',
                 mode: 'mask',
                 commonSelector: '.iconify',
-                color: 'currentColor',
+                color: 'currentColor'
             })
         )
         .join('\n');

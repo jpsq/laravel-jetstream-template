@@ -1,24 +1,23 @@
 <script setup lang="ts">
+    import { User } from '@/types';
     import { Link, router, useForm } from '@inertiajs/vue3';
-    const props = defineProps({
-        user: Object,
-    });
+    const props = defineProps<{ user: User }>();
 
     const form = useForm({
         _method: 'PUT',
         name: props.user.name,
         username: props.user.name,
         email: props.user.email,
-        photo: null,
+        photo: null as File | null,
     });
 
-    const verificationLinkSent = ref(null);
-    const photoPreview = ref(null);
-    const photoInput = ref(null);
+    const verificationLinkSent = ref(false);
+    const photoPreview = ref();
+    const photoInput = ref<HTMLInputElement>();
 
     const updateProfileInformation = () => {
         if (photoInput.value) {
-            form.photo = photoInput.value.files[0];
+            form.photo = photoInput.value.files![0];
         }
 
         form.post(route('user-profile-information.update'), {
@@ -33,18 +32,18 @@
     };
 
     const selectNewPhoto = () => {
-        photoInput.value.click();
+        photoInput.value?.click();
     };
 
     const updatePhotoPreview = () => {
-        const photo = photoInput.value.files[0];
+        const photo = photoInput.value?.files![0];
 
         if (!photo) return;
 
         const reader = new FileReader();
 
         reader.onload = (e) => {
-            photoPreview.value = e.target.result;
+            photoPreview.value = e.target?.result;
         };
 
         reader.readAsDataURL(photo);
@@ -62,7 +61,7 @@
 
     const clearPhotoFileInput = () => {
         if (photoInput.value?.value) {
-            photoInput.value.value = null;
+            photoInput.value.files = null;
         }
     };
 </script>
@@ -94,7 +93,7 @@
 
                     <div>
                         <Button variant="outline" class="mt-2 me-2 block" type="button" @click.prevent="selectNewPhoto"> Select A New Photo </Button>
-                        <Button variant="destructive" v-if="user.avatar" type="button" class="mt-2" @click.prevent="deletePhoto">
+                        <Button variant="destructive" v-if="user.profile_photo_url" type="button" class="mt-2" @click.prevent="deletePhoto">
                             Remove Photo
                         </Button>
                     </div>

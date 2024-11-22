@@ -1,32 +1,51 @@
 {
     "compilerOptions": {
-        "lib": [
-            "ESNext",
-            "DOM",
-            "DOM.Iterable"
-        ],
-        "baseUrl": "./resources",
+        "baseUrl": "./",
+        "target": "esnext",
+        "useDefineForClassFields": true,
         "module": "esnext",
         "moduleResolution": "node",
+        "isolatedModules": true,
+        "strict": true,
+        "jsx": "preserve",
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "paths": {
             "@/*": [
-                "./ts/*"
+                "./resources/ts/*"
             ],
             "@core/*": [
-                "./ts/@core/*"
+                "./resources/ts/core/*"
             ],
             "@images/*": [
-                "./assets/images/*"
+                "./resources/assets/images/*"
             ],
         },
-        "declaration": false,
-        "outDir": "dist",
-        "sourceMap": true
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ],
+        "skipLibCheck": true,
+        "types": [
+            "vite/client"
+        ]
     },
     "include": [
-        "./**/*"
+        "./vite.config.*",
+        "./env.d.ts",
+        "./shims.d.ts",
+        "./resources/ts/**/*",
+        "./resources/ts/**/*.vue",
+        "./auto-imports.d.ts",
+        "./components.d.ts"
     ],
     "exclude": [
-        "node_modules"
+        "./dist",
+        "./node_modules"
     ],
 }

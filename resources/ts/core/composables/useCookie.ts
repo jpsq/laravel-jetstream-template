@@ -1,5 +1,3 @@
-// Ported from [Nuxt](https://github.com/nuxt/nuxt/blob/main/packages/nuxt/src/app/composables/cookie.ts)
-
 import type { CookieParseOptions, CookieSerializeOptions } from 'cookie-es';
 import { parse, serialize } from 'cookie-es';
 import { destr } from 'destr';

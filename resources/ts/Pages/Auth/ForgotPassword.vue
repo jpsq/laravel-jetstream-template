@@ -18,7 +18,7 @@
 
 <template>
     <Head title="Forgot Password" />
-    <div class="w-full lg:grid lg:h-screen lg:grid-cols-2 xl:h-screen">
+    <div class="w-full lg:grid lg:grid-cols-2 flex-1">
         <div class="hidden bg-muted lg:block overflow-hidden">
             <img :src="Placeholder" alt="Image" class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
         </div>
