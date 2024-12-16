@@ -7,11 +7,13 @@ import '../css/app.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+console.log('appName', import.meta.env);
+
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: async (name) => {
         const page = await resolvePageComponent<DefineComponent>(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue') as any);
-        if (!page.default.layout) {
+            if (!page.default.layout) {
             page.default.layout = Layouts.default;
         }
         return page;

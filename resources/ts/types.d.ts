@@ -144,13 +144,13 @@ interface AclProperties {
 }
 interface NavLinkProps {
     href?: string;
-    route?:string
+    route?: string;
 }
 
 interface NavLink extends NavLinkProps, Partial<AclProperties> {
     title: string;
     icon?: string;
-    active?:boolean;
+    active?: boolean;
     // TODO: Add Badge Properties logic to the application
     // badgeContent?: string;
     // badgeClass?: string;

@@ -7,7 +7,7 @@
 
     const page = usePage();
 
-    const activeTeam = ref<Team>(page.props.auth.user?.current_team || { avatar: '', name: '', bio: '', id: '' });
+    const activeTeam = ref<Team>(page.props.auth.user?.current_team);
 
     function setActiveTeam(team: Team) {
         router.put(route('current-team.update'), { team_id: team.id }, { preserveState: false, onSuccess: () => (activeTeam.value = team) });
@@ -33,12 +33,11 @@
                                     <div
                                         class="flex aspect-square size-8 items-center justify-center rounded-lg overflow-hidden bg-sidebar-primary text-sidebar-primary-foreground"
                                     >
-                                        <img v-if="activeTeam.avatar" :src="'/storage/' + activeTeam.avatar" class="h-full w-full" />
-                                        <Icon v-else name="tabler-users" class="h-full w-full bg-muted" />
+                                        <Icon name="tabler-users" class="h-full w-full bg-muted" />
                                     </div>
                                     <div class="grid flex-1 text-left text-sm leading-tight" v-if="open">
-                                        <span class="truncate font-semibold">{{ activeTeam.name }}</span>
-                                        <span class="truncate text-xs">{{ activeTeam.bio }}</span>
+                                        <span class="truncate font-semibold">{{ activeTeam?.name || '' }}</span>
+                                        <!-- <span class="truncate text-xs">{{ activeTeam.bio }}</span> -->
                                     </div>
                                     <ChevronsUpDown class="ml-auto" v-if="open" />
                                 </SidebarMenuButton>
@@ -53,7 +52,7 @@
                                 <DropdownMenuItem
                                     v-for="(team, index) in $page.props.auth.user.all_teams"
                                     :key="team.name"
-                                    :class="['gap-2 p-2', { 'bg-accent text-accent-foreground': team.id === activeTeam.id }]"
+                                    :class="['gap-2 p-2', { 'bg-accent text-accent-foreground': team.id === activeTeam?.id }]"
                                     @click="setActiveTeam(team)"
                                 >
                                     <div class="flex size-6 items-center justify-center rounded-full overflow-hidden border">
@@ -250,6 +249,8 @@
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
+                <div class="flex-1"></div>
+                <ApplicationLogo class="h-10" />
                 <div class="flex-1"></div>
                 <ModeToggle class="place-items-end" />
             </header>

@@ -21,7 +21,11 @@
         },
         "declaration": false,
         "outDir": "dist",
-        "sourceMap": true
+        "sourceMap": true,
+        "target": "ESNext",
+        "types": [
+            "vite/client"
+        ]
     },
     "include": [
         "./**/*"

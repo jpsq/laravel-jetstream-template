@@ -6,6 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import svgLoader from 'vite-svg-loader';
+import { watch } from 'vite-plugin-watch';
 
 export default defineConfig({
     plugins: [
@@ -42,8 +43,14 @@ export default defineConfig({
         svgLoader({
             defaultImport: 'url',
         }),
+        // watch({
+        //     command: 'echo "generate env types" && npx dotenv-types-generator',
+        //     pattern: ['./.env'],
+        // }),
     ],
-    define: { 'process.env': {} },
+    define: { 'process.env': {
+        hugo: 'hugo',
+    } },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./resources/ts', import.meta.url)),
