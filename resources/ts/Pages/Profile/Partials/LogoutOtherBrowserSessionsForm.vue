@@ -111,7 +111,10 @@
             <!-- Log Out Other Devices Confirmation Modal -->
             <Modal :show="confirmingLogout" @close="closeModal">
                 <template #title> Log Out Other Browser Sessions </template>
-                <template #description>Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.</template>
+                <template #description
+                    >Please enter your password to confirm you would like to log out of your other browser sessions across all of your
+                    devices.</template
+                >
                 <template #content>
                     <div class="mt-4">
                         <Input

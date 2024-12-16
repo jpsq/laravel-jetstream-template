@@ -10,10 +10,10 @@
 
 <template>
     <Head title="Terms of Service" />
-    <div class="font-sans text-gray-900 antialiased">
-        <div class="pt-4 bg-gray-100">
+    <div class="font-sansantialiased">
+        <div class="pt-4 bg-background">
             <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-                <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white overflow-hidden sm:rounded-lg prose" v-html="terms" />
+                <div class="w-full sm:max-w-2xl mt-6 p-6 bg-surface overflow-hidden sm:rounded-lg prose dark:prose-invert" v-html="terms" />
             </div>
         </div>
     </div>

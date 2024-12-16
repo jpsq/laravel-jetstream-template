@@ -6,29 +6,19 @@ export const navSections: NavSection[] = [
         heading: 'General',
         navItems: [
             {
-                title: 'Documentation',
-                icon: 'tabler-book',
-                children: [
-                    {
-                        title: 'Introduction',
-                        href: '/docs/introduction',
-                    },
-                ],
+                title: 'Dashboard',
+                route: 'dashboard',
+                icon: 'tabler-home',
             },
             {
-                title: 'Settings',
-                icon: 'tabler-settings',
-                children: [
-                    {
-                        title: 'General',
-                        href: '#',
-                    },
-                ],
+                title: 'Create New Course',
+                route: 'courses.create',
+                icon: 'tabler-circle-plus',
             },
             {
-                title: 'Support',
-                href: '#',
-                icon: 'tabler-help',
+                title: 'Media Library',
+                route: 'media.index',
+                icon: 'tabler-library-photo',
             },
         ],
     },

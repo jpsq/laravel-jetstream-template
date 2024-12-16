@@ -1,4 +1,3 @@
-
 # Laravel Jetstream + ShadCN Vue Starter
 
 📦 Laravel Jetstream shadcn-vue Starter
@@ -47,20 +46,20 @@ This is a starter project for Laravel using Jetstream and shadcn-vue, providing 
 
 ## Features
 
-- Laravel 10.x
-- Jetstream with Inertia.js
-- Vue 3 for the frontend
-- shadcn-vue components
-- Tailwind CSS for styling
+-   Laravel 10.x
+-   Jetstream with Inertia.js
+-   Vue 3 for the frontend
+-   shadcn-vue components
+-   Tailwind CSS for styling
 
 ## Requirements
 
 Make sure you have the following installed on your machine:
 
-- PHP >= 8.1
-- Composer
-- Node.js >= 16.x
-- npm or yarn
+-   PHP >= 8.1
+-   Composer
+-   Node.js >= 16.x
+-   npm or yarn
 
 ## Installation
 
@@ -68,36 +67,36 @@ Follow these steps to get your development environment running:
 
 1. Clone the repository
 
-   ```bash
-   git clone https://github.com/hugo-abdou/your-repo-name.git
-   cd your-repo-name
-   ```
+    ```bash
+    git clone https://github.com/hugo-abdou/your-repo-name.git
+    cd your-repo-name
+    ```
 
 2. Install PHP dependencies
 
-   ```bash
-   composer install
-   ```
+    ```bash
+    composer install
+    ```
 
 3. Install NPM dependencies
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
 4. Create a copy of your .env file
 
-   ```bash
-   cp .env.example .env
-   ```
+    ```bash
+    cp .env.example .env
+    ```
 
 5. Generate an app encryption key
 
-   ```bash
-   php artisan key:generate
-   ```
+    ```bash
+    php artisan key:generate
+    ```
 
 6. Create an empty database for our application
 
@@ -105,17 +104,17 @@ Follow these steps to get your development environment running:
 
 8. Migrate the database
 
-   ```bash
-   php artisan migrate
-   ```
+    ```bash
+    php artisan migrate
+    ```
 
 9. Build assets
 
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
 10. Run the dev server (the output will give the address)
 

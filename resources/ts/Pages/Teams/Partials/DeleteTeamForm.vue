@@ -32,7 +32,7 @@
             </div>
 
             <div class="mt-5">
-                <DangerButton @click="confirmTeamDeletion"> Delete Team </DangerButton>
+                <Button variant="destructive" @click="confirmTeamDeletion"> Delete Team </Button>
             </div>
 
             <!-- Delete Team Confirmation Modal -->

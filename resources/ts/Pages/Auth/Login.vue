@@ -27,7 +27,7 @@
 
 <template>
     <Head title="Login" />
-    <div class="w-full lg:grid lg:h-screen lg:grid-cols-2 xl:h-screen">
+    <div class="w-full lg:grid lg:grid-cols-2 flex-1">
         <div class="hidden bg-muted lg:block overflow-hidden">
             <img :src="Placeholder" alt="Image" class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
         </div>
@@ -56,7 +56,15 @@
                         <Input v-model="form.password" id="password" type="password" placeholder="********" />
                         <InputError :message="form.errors.password" />
                     </div>
-                    <Button type="submit" class="w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing" append-icon="tabler-login"> Login </Button>
+                    <Button
+                        type="submit"
+                        class="w-full"
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing"
+                        append-icon="tabler-login"
+                    >
+                        Login
+                    </Button>
                     <Button variant="outline" type="button" class="w-full" append-icon="tabler-brand-google"> Login with Google </Button>
                 </div>
                 <div class="mt-4 text-center text-sm">

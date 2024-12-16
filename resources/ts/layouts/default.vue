@@ -1,9 +1,10 @@
 <script setup lang="ts">
-    import { ChevronsUpDown } from 'lucide-vue-next';
     import { ref } from 'vue';
     import { Link } from '@inertiajs/vue3';
     import { Team } from '@/types';
     import { mobileNavItems, navSections } from '@/navigation';
+    import Toaster from '@/core/components/toast/Toaster.vue';
+    import { Toaster as Sonner } from '@/core/components/sonner';
 
     const page = usePage();
 
@@ -16,6 +17,35 @@
     const logout = () => {
         router.post(route('logout'));
     };
+
+    const flash = computed(() => usePage().props.jetstream.flash);
+
+    watch(
+        flash,
+        ({ bannerStyle, banner }) => {
+            if (!banner) return;
+            setTimeout(() => {
+                switch (bannerStyle) {
+                    case 'success':
+                        sonnerSuccess(banner);
+                        break;
+                    case 'danger':
+                        sonnerError(banner);
+                        break;
+                    case 'warning':
+                        sonnerWarning(banner);
+                        break;
+                    case 'info':
+                        sonnerInfo(banner);
+                        break;
+                    default:
+                        sonnerToast(banner);
+                        break;
+                }
+            }, 1000);
+        },
+        { immediate: true }
+    );
 </script>
 
 <template>
@@ -24,6 +54,7 @@
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
+                        <!-- Teams Dropdown -->
                         <DropdownMenu v-if="$page.props.jetstream.hasTeamFeatures && $page.props.auth.user">
                             <DropdownMenuTrigger as-child>
                                 <SidebarMenuButton
@@ -39,7 +70,7 @@
                                         <span class="truncate font-semibold">{{ activeTeam?.name || '' }}</span>
                                         <!-- <span class="truncate text-xs">{{ activeTeam.bio }}</span> -->
                                     </div>
-                                    <ChevronsUpDown class="ml-auto" v-if="open" />
+                                    <Icon name="tabler-caret-up-down" class="ml-auto" v-if="open" />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
@@ -101,7 +132,7 @@
                                     <SidebarMenuItem>
                                         <CollapsibleTrigger as-child>
                                             <SidebarMenuButton :tooltip="item.title">
-                                                <Icon :name="item.icon" />
+                                                <Icon :name="item.icon" class="!shrink-0" />
                                                 <span>{{ item.title }}</span>
                                                 <Icon
                                                     name="tabler-chevron-right"
@@ -114,7 +145,7 @@
                                                 <!-- @vue-expect-error -->
                                                 <SidebarMenuSubItem v-for="subItem in item.children" :key="subItem.title">
                                                     <SidebarMenuSubButton as-child>
-                                                        <Link :href="subItem.href">{{ subItem.title }}</Link>
+                                                        <Link :href="route(subItem.route)">{{ subItem.title }}</Link>
                                                     </SidebarMenuSubButton>
                                                 </SidebarMenuSubItem>
                                             </SidebarMenuSub>
@@ -123,9 +154,9 @@
                                 </Collapsible>
                             </template>
                             <SidebarMenuItem v-else>
-                                <SidebarMenuButton :tooltip="item.title">
-                                    <Icon :name="item.icon" />
-                                    <span>{{ item.title }}</span>
+                                <SidebarMenuButton :tooltip="item.title" :variant="route().current(item.route) ? 'active' : 'default'">
+                                    <Icon :name="item.icon" class="!shrink-0" />
+                                    <Link :href="route(item.route)">{{ item.title }}</Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                         </template>
@@ -148,7 +179,7 @@
                                         <span class="truncate font-semibold">{{ $page.props.auth.user.name }}</span>
                                         <span class="truncate text-xs">{{ $page.props.auth.user.email }}</span>
                                     </div>
-                                    <ChevronsUpDown class="ml-auto size-4" />
+                                    <Icon name="tabler-caret-up-down" class="ml-auto size-4" />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
@@ -186,6 +217,10 @@
                                         <Icon name="tabler-key" />
                                         API Tokens
                                     </DropdownMenuItem>
+                                    <DropdownMenuItem :as="Link" :href="route('services.index')">
+                                        <Icon name="tabler-puzzle" />
+                                        services
+                                    </DropdownMenuItem>
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem @click="logout">
@@ -221,6 +256,7 @@
         </Sidebar>
 
         <SidebarInset class="bg-background" :is-mobile="isMobile">
+            <Sonner />
             <header class="flex h-16 shrink-0 px-4 items-center gap-2 transition-[width,height] ease-linear z-[99999]">
                 <div class="flex items-center gap-2 w-100">
                     <SidebarTrigger class="-ml-1" />
@@ -254,10 +290,11 @@
                 <div class="flex-1"></div>
                 <ModeToggle class="place-items-end" />
             </header>
-            <section class="flex min-h-[calc(100vh_-_theme(spacing.20))] flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
-                <slot />
-            </section>
-            <Toaster />
+            <Suspense>
+                <section class="flex min-h-[calc(100vh_-_theme(spacing.20))] flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10 container">
+                    <slot />
+                </section>
+            </Suspense>
             <div v-if="isMobile" class="h-16 bg-surface border-t border-border px-4 fixed bottom-0 w-full z-[9999]">
                 <nav class="h-full max-w-lg mx-auto">
                     <ul class="h-full flex items-center justify-around">

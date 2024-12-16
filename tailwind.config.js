@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
+import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -86,6 +86,7 @@ export default {
             },
             boxShadow: {
                 switch: 'rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 1px 2px',
+                mix: '0 5px 10px rgb(55 55 89 / 8%)',
             },
             keyframes: {
                 'accordion-down': {
@@ -111,7 +112,15 @@ export default {
                 'collapsible-down': 'collapsible-down 0.2s ease-in-out',
                 'collapsible-up': 'collapsible-up 0.2s ease-in-out',
             },
+            spacing: {
+                xs: '0.5rem', // 2
+                sm: '0.75rem', // 3
+                md: '1rem', // 4
+                lg: '1.5rem', // 6
+                xl: '2rem', // 8
+                '2xl': '2.5rem', // 10
+            },
         },
     },
-    plugins: [tailwindcssAnimate],
+    plugins: [tailwindcssAnimate,typography()],
 };

@@ -25,28 +25,28 @@
 
         --popover: var(--surface);
         --popover-foreground: var(--surface-foreground);
-      
+
         --popover: 0 0% 100%;
         --popover-foreground: 20 14.3% 4.1%;
-      
+
         --primary: 24.6 95% 53.1%;
         --primary-foreground: 60 9.1% 97.8%;
-      
+
         --secondary: 60 4.8% 95.9%;
         --secondary-foreground: 24 9.8% 10%;
-      
+
         --muted: 60 4.8% 95.9%;
         --muted-foreground: 25 5.3% 44.7%;
-      
+
         --accent: 60 4.8% 95.9%;
         --accent-foreground: 24 9.8% 10%;
-      
+
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 60 9.1% 97.8%;
-      
-        --border:20 5.9% 90%;
-        --input:20 5.9% 90%;
-        --ring:24.6 95% 53.1%;
+
+        --border: 20 5.9% 90%;
+        --input: 20 5.9% 90%;
+        --ring: 24.6 95% 53.1%;
         --radius: 0.5rem;
 
         --sidebar-background: var(--surface);
@@ -112,9 +112,19 @@
     }
 
     .iconify {
+        /* display: block !important; */
         width: 1.5em !important;
         height: 1.5em !important;
-        flex-shrink: 0;
+    }
+
+    .bg-icon {
+        background-color: currentColor;
+        -webkit-mask-image: var(--svg);
+        mask-image: var(--svg);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
     }
 }
 
