@@ -68,7 +68,7 @@ Follow these steps to get your development environment running:
 1. Clone the repository
 
     ```bash
-    git clone https://github.com/hugo-abdou/your-repo-name.git
+    git clone https://github.com/hugo-abdou/laravel-jetstream-shadcn-vue-starter.git
     cd your-repo-name
     ```
 
