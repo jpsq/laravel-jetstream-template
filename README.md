@@ -1,6 +1,4 @@
-# Laravel Jetstream + ShadCN Vue Starter
-
-📦 Laravel Jetstream shadcn-vue Starter
+# Template: 📦 Laravel Jetstream shadcn-vue Starter
 
 🛠️ A powerful starter kit for modern web applications, featuring:
 • Laravel 10.x
@@ -13,40 +11,15 @@
 • 🔌 Easy-to-use API integration helpers
 • 🚀 Performance optimizations for lightning-fast load times
 • 🧩 Modular architecture for easy customization
-
-🎨 Beautiful UI out of the box
-⚡ Rapid development
-🔒 Built-in authentication
-
-🔥 Upcoming Features:
-• 🔔 Realtime notifications system
-• 👥 Realtime user status updates
-• 💳 Invoicing system
-• 🔄 Subscription system with customizable plans and features
-• 📊 Advanced analytics dashboard
-• 🌐 Multi-language support
-• 🔐 Enhanced security features
-
-Perfect for developers looking to jumpstart their next big project!
+• 🎨 Beautiful UI out of the box
+•  ⚡ Rapid development
+•  🔒 Built-in authentication
 
 👉 Check it out on GitHub: <https://github.com/hugo-abdou/laravel-jetstream-shadcn-vue-starter>
 
-# Laravel #Vue3 #OpenSource #WebDevelopment #shadcnvue
-
-Feel free to star ⭐ and contribute! Let's build amazing things together! 💻✨
-
-[![Laravel Logo](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)](https://laravel.com)
-
-[![Build Status](https://github.com/laravel/framework/workflows/tests/badge.svg)](https://github.com/laravel/framework/actions)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/framework)
-
-This is a starter project for Laravel using Jetstream and shadcn-vue, providing a solid foundation for building modern web applications with a beautiful UI.
-
 ## Features
 
--   Laravel 10.x
+-   Laravel 11.9
 -   Jetstream with Inertia.js
 -   Vue 3 for the frontend
 -   shadcn-vue components
@@ -61,7 +34,7 @@ Make sure you have the following installed on your machine:
 -   Node.js >= 16.x
 -   npm or yarn
 
-## Installation
+## Installation without Docker:
 
 Follow these steps to get your development environment running:
 
@@ -120,6 +93,58 @@ Follow these steps to get your development environment running:
 
     ```bash
     php artisan serve
+    ```
+
+You're ready to go! Visit the app in your browser, and login with the default credentials.
+
+## Installation with Laravel Sail (Docker) for development:
+
+1. Clone the repository
+
+    ```bash
+    git clone https://github.com/hugo-abdou/laravel-jetstream-shadcn-vue-starter.git
+    cd your-repo-name
+    ```
+
+2. Install PHP dependencies (you will need the correct PHP version in your host)
+
+    ```bash
+    composer install
+    ```
+
+4. Create a copy of your .env file and configure it
+
+    ```bash
+    cp .env.example .env
+    ```
+
+5. Start containers
+
+    ```bash
+    ./vendor/bin/sail up -d
+    ```
+
+6. Execute the migrations
+
+    ```bash
+    ./vendor/bin/sail artisan migrate
+    ```
+
+7. Install npm dependencies
+
+    ```bash
+    ./vendor/bin/sail npm i
+    ```
+
+8. Execute the development server
+
+    ```bash
+    ./vendor/bin/sail npm run dev
+    ```
+9. Set the key
+
+    ```bash
+    ./vendor/bin/sail artisan key:generate
     ```
 
 You're ready to go! Visit the app in your browser, and login with the default credentials.
